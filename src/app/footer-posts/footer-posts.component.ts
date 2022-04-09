@@ -1,13 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BlogPost } from '../BlogPost';
 import { PostService } from '../post.service';
 
 @Component({
-  selector: 'app-latest-post',
-  templateUrl: './latest-post.component.html',
-  styleUrls: ['./latest-post.component.css']
+  selector: 'app-footer-posts',
+  templateUrl: './footer-posts.component.html',
+  styleUrls: ['./footer-posts.component.css']
 })
-export class LatestPostComponent implements OnInit {
+export class FooterPostsComponent implements OnInit {
+
   posts: BlogPost[] = [];
 
   constructor(private postService:PostService) { }
