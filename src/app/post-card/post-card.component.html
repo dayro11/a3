@@ -4,7 +4,7 @@
     <div class="post-details">
         <div class="post-meta d-flex justify-content-between">
             <div class="date meta-last">{{item.postDate | date:'mediumDate'}}</div>
-            <div class="category"><a routerLink="#">{{item.category}}</a></div>
+            <div class="category"><a [routerLink]="['/blog']" [queryParams]="{category: item.category}">{{item.category}}</a></div>
         </div><a [routerLink]="['/post', item._id]">
             <h3 class="h4">{{item.title}}</h3>
         </a>
