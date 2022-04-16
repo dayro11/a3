@@ -26,4 +26,20 @@ export class PostService {
   getTags():Observable<string[]>{
     return this.http.get<string[]>('https://murmuring-savannah-25972.herokuapp.com/api/tags');
   }
+
+  getAllPosts():Observable<BlogPost[]>{
+    return  this.http.get<BlogPost[]>('https://murmuring-savannah-25972.herokuapp.com/api/posts?page=1&perPage=' + Number.MAX_SAFE_INTEGER);
+  }
+
+  newPost(data: BlogPost): Observable<any>{
+    return this.http.post<any>('https://murmuring-savannah-25972.herokuapp.com/api/posts', data);
+  }
+
+  updatePostById(id: string, data: BlogPost): Observable<any>{
+    return this.http.put<any>(`https://murmuring-savannah-25972.herokuapp.com/api/posts/${id}`, data);
+  }
+
+  deletePostById(id: string): Observable<any>{
+    return this.http.delete<any>(`https://murmuring-savannah-25972.herokuapp.com/api/posts/${id}`);
+  }
 }

@@ -1,0 +1,32 @@
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form >
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" value={{blogPost.title}} [(ngModel)]="blogPost.title" name="title">
+                </div>
+                <div class="form-group">
+                    <label>Featured Image (URL)</label>
+                    <input type="text" class="form-control" value="{{blogPost.featuredImage}}" [(ngModel)]="blogPost.featuredImage" name="image">
+                </div>
+                <div class="form-group">
+                    <label>Post</label>
+                    <textarea class="form-control" style="min-height:200px" value="{{blogPost.post}}" [(ngModel)]="blogPost.post" name="post"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" class="form-control" value="{{blogPost.category}}" [(ngModel)]="blogPost.category" name="category">
+                </div>
+                <div class="form-group">
+                    <label>Tags</label>
+                    <textarea class="form-control" [(ngModel)]="tags" name="tags" value="{{tags}}"></textarea>
+                </div>
+
+                <div class="pull-right"> &nbsp; <button type="submit" class="btn btn-success btn-sm" (click)="formSubmit()">Add Post</button></div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />

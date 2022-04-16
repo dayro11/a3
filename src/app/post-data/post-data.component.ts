@@ -3,6 +3,7 @@ import { BlogPost } from '../BlogPost';
 import { PostService } from '../post.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-post-data',
   templateUrl: './post-data.component.html',
@@ -12,6 +13,16 @@ export class PostDataComponent implements OnInit {
   post:any=[];
 
   querySub:any=[];
+
+  commentName!: string;
+  commentText!: string;
+
+  submitComment(){
+    this.post.comments.push({author:this.commentName, comment:this.commentText, date:new Date().toLocaleDateString()});
+    this.postService.updatePostById(this.post._id, this.post).subscribe(data => this.post = data);
+    this.commentName = '';
+    this.commentText = '';
+  }
 
   constructor(private postService:PostService, private route:ActivatedRoute) { }
 
